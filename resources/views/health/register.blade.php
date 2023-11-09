@@ -36,9 +36,7 @@
 		{{ $task->created_at->format('Y/m/d') }}
 	];
 
-   	@endforeach
 
-   @foreach ($list as $task)
 	var weight_log = [
 		{{ $task->name }}
 	];

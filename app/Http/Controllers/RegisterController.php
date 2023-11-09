@@ -69,20 +69,6 @@ public function register(HeightRegisterPostRequest $request)
 
     }
 
-     protected function getTaskModel($height_id)
-    {
-        // task_idのレコードを取得する
-        $task = HeightModel::find($height_id);
-        if ($task === null) {
-            return null;
-        }
-        // 本人以外のタスクならNGとする
-        if ($task->user_id !== Auth::id()) {
-            return null;
-        }
-        //
-        return $task;
-    }
 
 
 
