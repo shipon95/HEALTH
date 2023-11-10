@@ -24,51 +24,19 @@
                 <button>体重を登録する</button>
             </form>
 
-            	<h1>グラフ</h1>
-   	<canvas id="myChart"></canvas>
-		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
-	<!-- グラフを描画 -->
-   <script>
+<table border="1">
+        <tr>
+            <th>1
+            <th>2
+@foreach ($list as $task)
+        <tr>
+            <td>{{ $task->name }}
+             <td>{{ $task->created_at }}
+       @endforeach
+  </table>
 
-   //ラベル
-    @foreach ($list as $task)
-   var labels = [
-		{{ $task->created_at->format('Y/m/d') }}
-	];
+g
 
-
-	var weight_log = [
-		{{ $task->name }}
-	];
-
-
-	@endforeach
-
-	//グラフを描画
-   var ctx = document.getElementById("myChart");
-   var myChart = new Chart(ctx, {
-		type: 'line',
-		data : {
-			labels: labels,
-			datasets: [
-				{
-					label: '体重',
-					data: weight_log,
-					borderColor: "rgba(0,0,255,1)",
-         			backgroundColor: "rgba(0,0,0,0)"
-				}
-			]
-
-
-				},
-		options: {
-			title: {
-				display: true,
-				text: '体重ログ'
-			}
-		}
-   });
-  </script>
 
 
 
